@@ -1,51 +1,48 @@
 <script setup lang="ts">
-import LeaderBoard from "~/components/LeaderBoard.vue";
-import axios from "axios";
+import ShuffleText from "~/components/Shuffle-text.vue";
 
-let players = ref([]);
-
-onMounted(async () => {
-  const { data } = await axios.get("http://localhost:3100/scrims");
-  players.value = data;
-})
-
-let columns = {
-  rank: "Rank",
-  name: "Player",
-  kills: "Kills",
-  assists: "Assists",
-  damage: "Damage",
-  points: "Points"
-}
 
 </script>
+
 <template>
-  <div class="p-0 h-full flex flex-col">
-    <!-- Inner Navbar (Fixed) -->
-    <div class="w-full h-14 bg-black/90 flex items-center justify-between px-6 border-b border-gray-700">
-      <div class="flex space-x-8">
-        <a href="#" class="text-gray-300 hover:text-yellow-400 hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 font-bold text-lg uppercase py-2 px-4">FPP</a>
-        <a href="#" class="text-gray-300 hover:text-yellow-400 hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 font-bold text-lg uppercase py-2 px-4">TPP</a>
-        <a href="#" class="text-gray-300 hover:text-yellow-400 hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 font-bold text-lg uppercase py-2 px-4">Ranked</a>
+  <div class="h-full w-full flex items-center justify-center">
+    <Particles />
+
+    <div class="w-[80rem] h-[36rem]  flex ">
+      <div class="w-full h-full  flex justify-center flex-col ">
+        <ShuffleText text="SYCO" />
+        <h2 class="text-green-400 text-xl">Join Syco, Bangladesh's largest gaming community on Discord! <br> Syco is your ultimate hub for gaming, tournaments, and making new friends</h2>
       </div>
-      <div class="flex space-x-8">
-        <a href="#" class="text-gray-300 hover:text-yellow-400 hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 font-bold text-lg uppercase py-2 px-4">Squad</a>
-        <a href="#" class="text-gray-300 hover:text-yellow-400 hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 font-bold text-lg uppercase py-2 px-4">Duo</a>
-        <a href="#" class="text-gray-300 hover:text-yellow-400 hover:bg-gray-700/50 hover:scale-105 transition-all duration-300 font-bold text-lg uppercase py-2 px-4">Solo</a>
+      <div class="w-full h-full p-2 flex items-center justify-center">
+        <div class="bg-[#36393f] w-[26rem] h-full rounded-2xl flex items-center flex-col pt-20">
+          <!-- Server Icon -->
+          <div class="w-[10rem] h-[10rem] bg-black rounded-full flex items-center justify-center">
+            <img src="https://cdn.discordapp.com/attachments/1328843479303979058/1345457708161302579/SYCO_eSports.png?ex=67c49ea3&is=67c34d23&hm=b457d181f2b8b80622a128ab581127f694da207a47661ac590ba583e3a87b91d&">
+          </div>
+
+          <!-- Server Name -->
+          <h2 class="text-white text-2xl font-semibold mt-6">SYCO</h2>
+
+          <!-- Invite Description -->
+          <p class="text-gray-400 text-sm mt-2 text-center px-8">
+            You've been invited to join a server. Click the button below to join!
+          </p>
+
+          <!-- Join Button -->
+          <a
+              href="https://discord.com/invite/sycovai"
+              class="w-[20rem] h-[3rem] bg-[#7289da] text-white rounded-xl mt-10 flex items-center justify-center hover:bg-[#677bc4] transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+          >
+            Join Server
+          </a>
+        </div>
       </div>
     </div>
-
-    <LeaderBoard title="Scrim Leaderboard" :players="players" :columns="columns" />
-
   </div>
 </template>
 
-
 <style >
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
 
-}
 </style>

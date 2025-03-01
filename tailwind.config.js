@@ -9,7 +9,11 @@ export default {
     "./error.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'chakra': ['"Chakra Petch"', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

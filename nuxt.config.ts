@@ -9,8 +9,14 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+
   modules: [
     // ...
     '@pinia/nuxt',
+    'nuxt-particles',
   ],
+  particles: {
+    mode: 'full', // 'full' | 'slim' | 'basic' | 'custom'
+    lazy: true
+  }
 })
