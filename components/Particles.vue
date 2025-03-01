@@ -110,7 +110,8 @@ const onLoad = (container: Container) => {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #1e293b, #2a3649, #323849); /* slate800 to slate600 gradient */
+  //background: linear-gradient(135deg, #4c9408, #5c9602, #6c9102); /* slate800 to slate600 gradient */
+  background: linear-gradient(135deg, #0f1c01, #1b2c02, #283403); /* slate800 to slate600 gradient */
   z-index: -2; /* Place it behind everything */
 }
 

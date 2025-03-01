@@ -2,7 +2,7 @@
   <h1
       ref="textEl"
       :data-value="text"
-      class="text-green-400 text-8xl font-bold cursor-pointer w-fit"
+      class="text-green-400 text-[8rem] font-bold cursor-pointer w-fit"
       @mouseover="handleMouseOver"
   >
     {{ text }}
