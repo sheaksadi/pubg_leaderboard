@@ -98,8 +98,8 @@ const options = {
 }
 
 const onLoad = (container: Container) => {
-  container.pause()
-  setTimeout(() => container.play(), 2000)
+  // container.pause()
+  // setTimeout(() => container.play(), 2000)
 }
 </script>
 

@@ -5,7 +5,7 @@
       class="text-green-400 text-[8rem] font-bold cursor-pointer w-fit"
       @mouseover="handleMouseOver"
   >
-    {{ text }}
+    {{ displayText }}
   </h1>
 </template>
 
@@ -20,28 +20,32 @@ const props = defineProps({
   }
 })
 
+const displayText = ref("PUBG")
 const textEl = ref(null)
 let interval = null
 
-const shuffleText = (target) => {
+const shuffleText = (target, finalText) => {
   const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   let iteration = 0
 
   clearInterval(interval)
 
   interval = setInterval(() => {
+    if (!target || !target.innerText) {
+      return
+    }
     target.innerText = target.innerText
         .split("")
         .map((letter, index) => {
-          if(index < iteration) {
-            return target.dataset.value[index]
+          if (index < iteration) {
+            return finalText[index]
           }
 
           return letters[Math.floor(Math.random() * 26)]
         })
         .join("")
 
-    if(iteration >= target.dataset.value.length){
+    if (iteration >= finalText.length) {
       clearInterval(interval)
     }
 
@@ -50,12 +54,15 @@ const shuffleText = (target) => {
 }
 
 const handleMouseOver = (event) => {
-  shuffleText(event.target)
+  shuffleText(event.target, props.text)
 }
 
 onMounted(() => {
   if (textEl.value) {
-    shuffleText(textEl.value)
+    // Start with PUBG and transition to the prop text
+    setTimeout(() => {
+      shuffleText(textEl.value, props.text)
+    }, 500) // Short delay for visual effect
   }
 })
 </script>
