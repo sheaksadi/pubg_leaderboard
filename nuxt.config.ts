@@ -11,11 +11,8 @@ export default defineNuxtConfig({
     ],
   },
 
-  modules: [
-    // ...
-    '@pinia/nuxt',
-    'nuxt-particles',
-  ],
+  modules: [// ...
+  '@pinia/nuxt', 'nuxt-particles', 'nuxt-echarts'],
   particles: {
     mode: 'full', // 'full' | 'slim' | 'basic' | 'custom'
     lazy: true

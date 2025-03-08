@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useAuthStore } from '~/stores/authStore';
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
+import Contributions from "~/components/Contributions.vue";
 
 const authStore = useAuthStore();
 
@@ -143,6 +144,18 @@ onUnmounted(() => {
     }
   }
 });
+
+
+
+
+const contributionsData = ref([
+  { date: '2024-02-15', contributions: 5 },
+  { date: '2024-02-16', contributions: 8 },
+  { date: '2024-02-18', contributions: 2 },
+  { date: '2024-02-19', contributions: 6 },
+  { date: '2024-02-20', contributions: 4 },
+])
+
 </script>
 
 <template>
@@ -152,7 +165,7 @@ onUnmounted(() => {
         <img :src="session.avatar" :alt="session.username" class="w-12 h-12 rounded-full bg-green-500 ring-1 ring-green-400 cursor-pointer" />
 
         <!-- Dropdown Menu -->
-        <div class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div class="absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden">
           <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="navigateToProfile">Profile</button>
           <button class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" @click="signOut">Logout</button>
         </div>
@@ -226,6 +239,8 @@ onUnmounted(() => {
         </div>
       </div>
     </div>
-    <div class="h-screen"></div>
+    <div class="h-screen">
+      <Contributions :contribution-data="contributionsData "></Contributions>
+    </div>
   </div>
 </template>
