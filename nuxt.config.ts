@@ -1,4 +1,5 @@
 import tailwindcss from "@tailwindcss/vite";
+import Aura from '@primeuix/themes/aura';
 
 export default defineNuxtConfig({
   compatibilityDate: "2024-11-01",
@@ -12,7 +13,9 @@ export default defineNuxtConfig({
   },
 
   modules: [// ...
-  '@pinia/nuxt', 'nuxt-particles', 'nuxt-echarts'],
+  '@pinia/nuxt', 'nuxt-particles', 'nuxt-echarts', '@nuxt/icon'
+  ],
+
   particles: {
     mode: 'full', // 'full' | 'slim' | 'basic' | 'custom'
     lazy: true
